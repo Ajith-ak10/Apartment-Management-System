@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Available Apartments{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center text-success">🏠 Available Apartments</h2>
+    <div class="row">
+        {% for apartment in apartments %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="{{ apartment.image.url }}" class="card-img-top" alt="{{ apartment.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ apartment.name }}</h5>
+                    <p class="card-text"><strong>Location:</strong> {{ apartment.location }}</p>
+                    <p class="card-text"><strong>Price:</strong> ₹{{ apartment.price }}</p>
+                    <p class="card-text"><strong>Availability:</strong> 
+                        {% if apartment.availability %}
+                            <span class="badge bg-success">Available</span>
+                        {% else %}
+                            <span class="badge bg-danger">Not Available</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-danger">No apartments available right now.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

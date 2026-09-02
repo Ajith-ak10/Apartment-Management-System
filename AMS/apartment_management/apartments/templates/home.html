@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Welcome, {{ user.username }}! 🏡</h2>
+    <p class="text-center">Manage your apartment, complaints, and payments here.</p>
+
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'submit_complaint' %}" class="btn btn-danger mx-2">📝 Submit a Complaint</a>
+        <a href="{% url 'make_payment' %}" class="btn btn-success mx-2">💰 Make a Payment</a>
+    </div>
+{% endblock %}
