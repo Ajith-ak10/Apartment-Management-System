@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: apartment-management-system
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn apartment_management.wsgi:application"
